@@ -1,5 +1,5 @@
   <!-- Navbar -->
- @include('layouts.header');
+  @include('layouts.header');
   <!-- /.navbar -->
   <!-- Main Sidebar Container -->
  @include('layouts.sidebar');
@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Dashboard</h1>
+            <h1>Dashboard Unit Kerja</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Admin</h3>
+          <h3 class="card-title">Unit Kerja</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -38,7 +38,31 @@
           </div>
         </div>
         <div class="card-body">
-          Ini buat content kalian
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Id</th>
+                  <th>Nama</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($list_unitkerja as $unitkerja)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $unitkerja->id }}</td>
+                  <td>{{ $unitkerja->nama }}</td>
+                  <td>
+                    <a href=""><button class="btn-success">Detail</button></a>
+                    <a href=""><button class="btn-warning">Edit</button></a> 
+                    <a href=""><button class="btn-danger">Hapus</button></a></td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
